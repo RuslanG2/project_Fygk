@@ -113,7 +113,7 @@ public class index extends JFrame{
 		//Добавление компонентов JLabel, JTextField на панель panel,panel1,panel2
 
 					 
-
+//
            
 
 }}
