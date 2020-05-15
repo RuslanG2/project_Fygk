@@ -137,6 +137,62 @@ public class index extends JFrame{
 	  		предназначенный для обработки событий "ActionEvent".
 	  		тело интерфейса указывается ниже после фигурной скобки "{"
 	  		*/ 
-           
+			 public void actionPerformed(ActionEvent e)
+	            {
+	            	
+	                int_rad=13; 
+	    			sum_n.setText("");//очистить текстовое поле
+	    			sum.setText("");
+	            }
+	        });
+			rad_15.addActionListener(new ActionListener()
+	        { public void actionPerformed(ActionEvent e)
+	            {
+	                int_rad=15; 
+	    			sum_n.setText("");//очистить текстовое поле
+	    			sum.setText("");
+	            }
+	        });
+			rad_30.addActionListener(new ActionListener()
+	        { public void actionPerformed(ActionEvent e)
+	            {
+	                int_rad=30; 
+	    			sum_n.setText("");//очистить текстовое поле
+	    			sum.setText("");
+	            }
+	        });
+			rad_35.addActionListener(new ActionListener()
+	        { public void actionPerformed(ActionEvent e)
+	            {
+	                int_rad=35; 
+	    			sum_n.setText("");//очистить текстовое поле
+	    			sum.setText("");
+	            }
+	        });
+			
+			calc.addActionListener(new ActionListener()   
+	    			
+	    	   {                                                         
+	    	    public void actionPerformed(ActionEvent e)   
+	    	   
+	    	    {  
+		    		
+	    	    	if (isValidInput(sum_ok, "сумму оклада")) {
+		    		
+	    	    		double d_sum_ok= Double.parseDouble(sum_ok.getText().replace(',','.'));
+	    	    	
+	    	    		double d_sum_n = d_sum_ok/100*int_rad;//расчет сумма налога
+	    	    		double d_sum = d_sum_ok-d_sum_n;//расчет сумма на руки
 
-}}
+	    	    		String s_sum_n = String.format("%.2f", d_sum_n);
+	    	    		    
+	    	    		sum_n.setText(s_sum_n); /* Записываем строковую переменную в поля Jlabel */
+	    	    		String s_sum = String.format("%.2f", d_sum);
+	    	    		sum.setText(s_sum); /* Записываем строковую переменную в поля Jlabel */ 	    		
+	    	    	}
+	    	    	}   	    	                             
+	    	   }); 
+		}	
+
+
+}
