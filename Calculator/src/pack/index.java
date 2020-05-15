@@ -193,6 +193,43 @@ public class index extends JFrame{
 	    	    	}   	    	                             
 	    	   }); 
 		}	
+	//проверка данных, введенных пользователем
+    public static boolean isValidInput(JTextField jtxt, String description) {
 
+        JDialog D = new JDialog();
+		//если был введен какой-либо текст
+        if (jtxt.getText().trim().length() > 0) {
+            //проверка на ввод только целого числа
+            try { 
+              
+                 double num = Double.parseDouble(jtxt.getText().replace(',','.')); //попытка преобразовать текст в целое число      
+                return true; //если все нормально - возвращаем true
+
+            } catch (NumberFormatException e) {
+            	
+
+                //расположить курсор в текстовое поле, чтобы пользователь еще раз ввел число
+                jtxt.requestFocus();
+                jtxt.setText("");//очистить текстовое поле
+   			
+                //предупреждение - неверный формат числа
+                JOptionPane.showMessageDialog(D, "Вы должны ввести число!", "Ошибка", JOptionPane.WARNING_MESSAGE);
+
+                return false;//ошибка - возвращаем false
+            }
+
+        } else {// если пользователь не ввели никаких данных
+
+            //предупреждение, что нужно ввести данные
+            JOptionPane.showMessageDialog(D, "Введите " + description, "Ошибка", JOptionPane.WARNING_MESSAGE);
+
+            //расположить курсор в текстово окне, чтобы пользователь еще раз ввел число
+            jtxt.requestFocus();
+            jtxt.selectAll();//очистить текстовое поле
+
+            //ошибка - возвращаем false
+            return false;
+        }
+    }	
 
 }
